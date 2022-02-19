@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 
 function NavB ({entities, onEdit}) {
-  return (<>
+  return (
 
      <Navbar bg="dark" variant="dark">
        <Container>
@@ -18,7 +18,7 @@ function NavB ({entities, onEdit}) {
      </Nav>
      </Container>
    </Navbar>
-  </>
+
   )
 }
 
