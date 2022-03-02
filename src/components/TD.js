@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function TD ({attribute, onDelete, onEdit}) {
+function TD ({attribute}) {
     return (
         <>
         <td>{attribute}</td>

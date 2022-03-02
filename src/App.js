@@ -8,6 +8,7 @@ import Overview from './pages/Overview';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
+  const [entityToLoad, setEntityToLoad] = useState([69]);
   return (
     <div className="App">
     <link
@@ -20,9 +21,9 @@ function App() {
       <Router>  
           <div className="App-header">
           <Route path="/" exact>
-            <Homepage setEntityToEdit={setEntityToEdit}/>
+            <Homepage setEntityToLoad={setEntityToLoad}/>
           </Route>
-          <Route path="/overview">
+          <Route path="/overview" entity={entityToLoad}>
             <Overview/>
           </Route>
           <Route path="/edit">

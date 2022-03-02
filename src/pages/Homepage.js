@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import NavB from '../components/navbar';
 import {useState, useEffect} from 'react';
 
-function Homepage({setEntityToEdit}){
+function Homepage({setEntityToLoad}){
     const history = useHistory();
-    const [entities, setEntities] = useState([]);
+    const [entities, setEntities] = useState([69]);
 
     useEffect(() => {
         loadEntities();
@@ -18,14 +18,15 @@ function Homepage({setEntityToEdit}){
         setEntities(entities);
     }
 
-    const onEdit = entities => {
-        setEntityToEdit(entities)
-        history.push('/Edit');
+    const onLoad = entities => {
+        setEntityToLoad(entities)
+        console.log('1',entities)
+        history.push('/overview');
     }
 
     return (
         <>
-            <NavB entities={entities} onEdit={onEdit}></NavB>
+            <NavB entities={entities} onLoad={onLoad}></NavB>
         </>
     )
 }

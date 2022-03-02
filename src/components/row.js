@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdOutlineDeleteForever, MdEditNote } from "react-icons/md";
+import { MdAllInbox, MdDelete } from "react-icons/md";
 import TD from './TD';
 
 function Row({attributes, onDelete, onEdit}) {
@@ -7,8 +7,8 @@ function Row({attributes, onDelete, onEdit}) {
         <>
             <tr>
               {attributes.map((attribute, i) => <TD attribute={attribute} key={i} />)}
-              <td><MdEditNote onClick={ () => onEdit(entity)}/></td>
-              <td><MdOutlineDeleteForever onClick={ () => onDelete(entity._id)}/></td>
+              <td><MdAllInbox onClick={ () => onEdit(attributes)}/></td>
+              <td><MdDelete onClick={ () => onDelete(attributes)}/></td>
               </tr>
         </>
     )

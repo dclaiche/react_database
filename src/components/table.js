@@ -1,21 +1,21 @@
 import React from 'react';
-import { MdOutlineDeleteForever } from "react-icons/md";
 import Row from './row';
 import TH from './TH';
 
-function Table({entity, onDelete, onEdit}) {
-    keys = Object.keys(entity)
+function Table({entities, onDelete, onEdit}) {
+    const keys = Object.keys(entities)
     return (
         <>
          <div class="cap">
-            <caption>{entity}</caption>
         </div>
             <table>
               <tbody>
                     <tr>
-                    {keys.map((akey) => <TH akey={akey}/>)}
+                    {/* {keys.map((akey) => <TH akey={akey}/>)} */}
+                    <th>Edit</th>
+                    <th>Delete</th>
                     </tr>
-                    {entity.map((attributes, i) => <Row attributes={attributes} onDelete={onDelete} onEdit={onEdit} key={i} />)}   
+                    {/* {entities.map((attributes, i) => <Row attributes={attributes} onDelete={onDelete} onEdit={onEdit} key={i} />)}    */}
                 </tbody>       
             </table>
         </>
