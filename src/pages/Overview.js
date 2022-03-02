@@ -10,18 +10,15 @@ function Overview({entity}) {
     const history = useHistory();
     const [entities, setEntities] = useState([]);
     
-    useEffect(() => {
-        console.log(entity)
-        loadEntities();
-    }, [entities]);
 
     
     //To be used as placeholder for user schema via mongoose on the backend
-    const loadEntities = () => {
-        //To be used as placeholder for user schema via mongoose on the backend
-        setEntities(entity);
-    }
+    // const loadEntities = () => {
+    //     //To be used as placeholder for user schema via mongoose on the backend
+    //     setEntities(entity);
+    // }
     
+    console.log(entity)
 
     const onEdit = entities => {
         // setEntityToEdit(entities)
@@ -44,6 +41,7 @@ function Overview({entity}) {
 
     return (
         <>
+        <p>{entity.email}</p>
         <NavB entities={entities} onLoad={onLoad}></NavB>
         {/* <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table> */}
 

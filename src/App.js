@@ -8,7 +8,7 @@ import Overview from './pages/Overview';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
-  const [entityToLoad, setEntityToLoad] = useState([69]);
+  const [entityToLoad, setEntityToLoad] = useState([]);
   return (
     <div className="App">
     <link
@@ -23,8 +23,8 @@ function App() {
           <Route path="/" exact>
             <Homepage setEntityToLoad={setEntityToLoad}/>
           </Route>
-          <Route path="/overview" entity={entityToLoad}>
-            <Overview/>
+          <Route path="/overview">
+            <Overview entity={entityToLoad}/>
           </Route>
           <Route path="/edit">
             <EditEntity editExercise={entityToEdit}/>

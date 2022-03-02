@@ -20,7 +20,6 @@ function Homepage({setEntityToLoad}){
 
     const onLoad = entities => {
         setEntityToLoad(entities)
-        console.log('1',entities)
         history.push('/overview');
     }
 
