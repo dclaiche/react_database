@@ -12,10 +12,12 @@ import AddGames from './pages/create/addGames';
 import AddMembership from './pages/create/addMembership';
 import AddMessages from './pages/create/addMembership';
 import AddPlayer from './pages/create/addPlayers';
+import SearchResults from './pages/SearchResults';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
   const [entityToAdd, setEntityToAdd] = useState([]);
+  const [tosearch, setToSearch] = useState([]);
   return (
     <div className="App">
     <link
@@ -30,16 +32,16 @@ function App() {
           <Route path="/" exact>
             <Homepage/>
           </Route>
-          <Route path="/players" setEntityToAdd={setEntityToAdd}>
+          <Route path="/players" setToSearch={setToSearch}>
             <Players/>
           </Route>
-          <Route path="/games" setEntityToAdd={setEntityToAdd}>
+          <Route path="/games" setToSearch={setToSearch}>
             <Games/>
           </Route>
-          <Route path="/messages" setEntityToAdd={setEntityToAdd}>
+          <Route path="/messages" setToSearch={setToSearch}>
             <Messages/>
           </Route>
-          <Route path="/membership" setEntityToAdd={setEntityToAdd}>
+          <Route path="/membership" setToSearch={setToSearch}>
             <Membership/>
           </Route>
           <Route path="/creategames">
@@ -53,6 +55,9 @@ function App() {
           </Route>
           <Route path="/createplayer">
             <AddPlayer/>
+          </Route>
+          <Route path="/search">
+            <SearchResults tosearch={tosearch}/>
           </Route>
           <Route path="/edit">
             <EditEntity/>
