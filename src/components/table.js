@@ -3,19 +3,19 @@ import Row from './row';
 import TH from './TH';
 
 function Table({entities, onDelete, onEdit}) {
-    const keys = Object.keys(entities)
+    const keys = Object.keys(entities[0])
     return (
         <>
-         <div class="cap">
+         <div>
         </div>
             <table>
               <tbody>
                     <tr>
-                    {/* {keys.map((akey) => <TH akey={akey}/>)} */}
+                    {keys.map((akey) => <TH akey={akey}/>)}
                     <th>Edit</th>
                     <th>Delete</th>
                     </tr>
-                    {/* {entities.map((attributes, i) => <Row attributes={attributes} onDelete={onDelete} onEdit={onEdit} key={i} />)}    */}
+                    <Row entities={entities} onDelete={onDelete} onEdit={onEdit}/>   
                 </tbody>       
             </table>
         </>

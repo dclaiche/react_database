@@ -6,29 +6,27 @@ import {useState, useEffect} from 'react';
 
 
 
-function Overview({entity}) {
+function Games() {
     const history = useHistory();
     const [entities, setEntities] = useState([]);
     
-
+    useEffect(() => {
+        loadEntities();
+    }, []);
     
-    //To be used as placeholder for user schema via mongoose on the backend
-    // const loadEntities = () => {
-    //     //To be used as placeholder for user schema via mongoose on the backend
-    //     setEntities(entity);
-    // }
-    
-    console.log(entity)
+    // To be used as placeholder for user schema via mongoose on the backend
+    const loadEntities = async () => {
+        //To be used as placeholder for user schema via mongoose on the backend
+        const response = await fetch('/games', 'GET');
+        const entities = await response.json();
+        setEntities(entities);
+    }
 
     const onEdit = entities => {
         // setEntityToEdit(entities)
         history.push('/edit');
     }
 
-    const onLoad = entities => {
-        // setEntityToLoad(entities)
-        history.push('/overview');
-    }
 
     const onDelete = async pk => {
         const response = await fetch(`/delete`, { method: 'DELETE' });
@@ -41,13 +39,11 @@ function Overview({entity}) {
 
     return (
         <>
-        <p>{entity.email}</p>
-        <NavB entities={entities} onLoad={onLoad}></NavB>
-        {/* <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table> */}
-
+        <NavB entities={entities}></NavB>
+        <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
         </>
     )
 }
 
 
-export default Overview;
+export default Games;

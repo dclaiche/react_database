@@ -5,6 +5,10 @@ import { useState } from 'react';
 import EditEntity from './pages/EditEntity';
 import Homepage from './pages/Homepage';
 import Overview from './pages/Overview';
+import Players from './pages/Players';
+import Games from './pages/Games';
+import Messages from './pages/Messages';
+import Membership from './pages/Membership';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
@@ -21,13 +25,22 @@ function App() {
       <Router>  
           <div className="App-header">
           <Route path="/" exact>
-            <Homepage setEntityToLoad={setEntityToLoad}/>
+            <Homepage/>
           </Route>
-          <Route path="/overview">
-            <Overview entity={entityToLoad}/>
+          <Route path="/players">
+            <Players/>
+          </Route>
+          <Route path="/games">
+            <Games/>
+          </Route>
+          <Route path="/messages">
+            <Messages/>
+          </Route>
+          <Route path="/membership">
+            <Membership/>
           </Route>
           <Route path="/edit">
-            <EditEntity editExercise={entityToEdit}/>
+            <EditEntity/>
           </Route>
           </div> 
         </Router>

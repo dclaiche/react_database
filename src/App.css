@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+td:nth-child(odd){
+  background-color: black;
+ }
+ td:nth-child(even){
+   background-color: #464647;
+  }
+ .abutton {
+   display: block;
+ }
+ th, td {
+   border: 1px solid black;
+ }
+ .cap {
+   text-align: center;
+   font-size: 2em;
+ }
+ 
+ .link {
+   color: #ADE1F8;
+ }

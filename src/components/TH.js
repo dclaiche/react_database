@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function TH ({key}) {
+function TH ({akey}) {
     return (
         <>
-        <th>{key}</th>
+        <th>{akey}</th>
         </>
     )
 }
