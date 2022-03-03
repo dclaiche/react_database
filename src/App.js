@@ -4,7 +4,6 @@ import React from 'react';
 import { useState } from 'react';
 import EditEntity from './pages/EditEntity';
 import Homepage from './pages/Homepage';
-import Overview from './pages/Overview';
 import Players from './pages/Players';
 import Games from './pages/Games';
 import Messages from './pages/Messages';

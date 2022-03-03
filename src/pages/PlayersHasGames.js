@@ -8,11 +8,11 @@ import {useState, useEffect} from 'react';
 
 function PlayersHasGames() {
     const history = useHistory();
-    const [entities, setEntities] = useState([]);
+    const [entities, setEntities] = useState([0]);
     
     useEffect(() => {
         loadEntities();
-    }, []);
+    }, [entities]);
     
     // To be used as placeholder for user schema via mongoose on the backend
     const loadEntities = async () => {

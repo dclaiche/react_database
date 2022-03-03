@@ -15,7 +15,7 @@ function Table({entities, onDelete, onEdit}) {
                     <th>Edit</th>
                     <th>Delete</th>
                     </tr>
-                    <Row entities={entities} onDelete={onDelete} onEdit={onEdit}/>   
+                    {entities.map((entities, i) => <Row entities={entities} onDelete={onDelete} onEdit={onEdit} key={i}/>)}   
                 </tbody>       
             </table>
         </>

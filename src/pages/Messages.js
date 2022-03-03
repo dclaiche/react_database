@@ -8,16 +8,16 @@ import {useState, useEffect} from 'react';
 
 function Messages() {
     const history = useHistory();
-    const [entities, setEntities] = useState([]);
+    const [entities, setEntities] = useState([0]);
     
     useEffect(() => {
         loadEntities();
-    }, []);
+    }, [entities]);
     
     // To be used as placeholder for user schema via mongoose on the backend
     const loadEntities = async () => {
         //To be used as placeholder for user schema via mongoose on the backend
-        const response = await fetch('/messages', 'GET');
+        const response = await fetch('/messages', {method: 'GET'});
         const entities = await response.json();
         setEntities(entities);
     }

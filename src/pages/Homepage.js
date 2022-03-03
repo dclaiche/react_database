@@ -5,11 +5,11 @@ import {useState, useEffect} from 'react';
 
 function Homepage({setEntityToLoad}){
     const history = useHistory();
-    const [entities, setEntities] = useState([69]);
+    const [entities, setEntities] = useState([0]);
 
     useEffect(() => {
         loadEntities();
-    }, []);
+    }, [entities]);
 
     const loadEntities = () => {
         //To be used as placeholder for user schema via mongoose on the backend
