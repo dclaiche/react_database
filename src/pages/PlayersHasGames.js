@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
@@ -38,6 +38,7 @@ function PlayersHasGames() {
         <>
         <NavB entities={entities}></NavB>
         <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
+        <Link to="/addplayershasgames">Add Player</Link>
         </>
     )
 }

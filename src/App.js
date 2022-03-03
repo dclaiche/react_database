@@ -8,10 +8,11 @@ import Players from './pages/Players';
 import Games from './pages/Games';
 import Messages from './pages/Messages';
 import Membership from './pages/Membership';
+import AddGames from './pages/create/addGames';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
-  const [entityToLoad, setEntityToLoad] = useState([]);
+  const [entityToAdd, setEntityToAdd] = useState([]);
   return (
     <div className="App">
     <link
@@ -26,17 +27,20 @@ function App() {
           <Route path="/" exact>
             <Homepage/>
           </Route>
-          <Route path="/players">
+          <Route path="/players" setEntityToAdd={setEntityToAdd}>
             <Players/>
           </Route>
-          <Route path="/games">
+          <Route path="/games" setEntityToAdd={setEntityToAdd}>
             <Games/>
           </Route>
-          <Route path="/messages">
+          <Route path="/messages" setEntityToAdd={setEntityToAdd}>
             <Messages/>
           </Route>
-          <Route path="/membership">
+          <Route path="/membership" setEntityToAdd={setEntityToAdd}>
             <Membership/>
+          </Route>
+          <Route path="/creategames">
+            <AddGames/>
           </Route>
           <Route path="/edit">
             <EditEntity/>
@@ -47,5 +51,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

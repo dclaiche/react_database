@@ -1,15 +1,18 @@
 import React from 'react';
-import { useHistory} from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
+import AddBar from '../components/addbar';
 
 
 
 function Players() {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
-    
+    const headers = ['player_id', 'email', 'password', 'games', 'wins', 'losses']
+    const page = 'players'
+
     useEffect(() => {
         loadEntities();
     }, [entities]);
@@ -38,7 +41,8 @@ function Players() {
     return (
         <>
         <NavB entities={entities}></NavB>
-        <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
+        <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
+        <Link to="/addplayers">Add Player</Link>
         </>
     )
 }

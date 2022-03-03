@@ -1,14 +1,15 @@
 import React from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
 
 
 
-function Messages() {
+function Messages({setEntityToAdd}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
+    const headers = ['chat_message_id', 'chat_message', 'timestamp', 'players_player_id', 'games_game_id']
     
     useEffect(() => {
         loadEntities();
@@ -39,7 +40,8 @@ function Messages() {
     return (
         <>
         <NavB entities={entities}></NavB>
-        <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
+        <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
+        <Link to="/addmessages">Add Messages</Link>
         </>
     )
 }

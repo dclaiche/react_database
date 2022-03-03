@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
@@ -9,6 +9,7 @@ import {useState, useEffect} from 'react';
 function Games() {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
+    const headers = ['game_id', 'time_played', 'duration', 'player_1', 'player_2', 'winner', 'socket_id', 'active_game']
     
     useEffect(() => {
         loadEntities();
@@ -40,7 +41,8 @@ function Games() {
     return (
         <>
         <NavB entities={entities}></NavB>
-        <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
+        <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
+        <Link to="/creategames">Add Game</Link>
         </>
     )
 }

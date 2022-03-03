@@ -1,14 +1,15 @@
 import React from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
 
 
 
-function Membership({entityToLoad}) {
+function Membership({setEntityToAdd}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
+    const headers = ['membership_player_id', 'premium_status', 'next_payment']
     
     useEffect(() => {
         loadEntities();
@@ -39,7 +40,8 @@ function Membership({entityToLoad}) {
     return (
         <>
         <NavB entities={entities}></NavB>
-        <Table entities={entities} onDelete={onDelete} onEdit={onEdit}></Table>
+        <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
+        <Link to="/membership">Add Membership</Link>
         </>
     )
 }
