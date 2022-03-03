@@ -41,7 +41,7 @@ function Membership({setEntityToAdd}) {
         <>
         <NavB entities={entities}></NavB>
         <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
-        <Link to="/membership">Add Membership</Link>
+        <Link to="/createmembership">Add Membership</Link>
         </>
     )
 }

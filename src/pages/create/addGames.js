@@ -13,22 +13,22 @@ function AddGames () {
     const [active_game, setActive_game] = useState('');
     const history = useHistory();
 
-    // const add = async () => {
-    //     const attributes = {time_played, duration, player_1, player_2, winner, socket_id, active_game};
-    //     const response = await fetch(`/games`, {
-    //         method: 'POST',
-    //         body: JSON.stringify(attributes),
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //     });
-    //     if(response.status === 200){
-    //         alert("Successfully edited the exercise");
-    //     } else {
-    //         alert(`Failed to add exercise, status code = ${response.status}`);
-    //     }
-    //     history.push(`/games`);
-    // };
+    const add = async () => {
+        const attributes = {time_played, duration, player_1, player_2, winner, socket_id, active_game};
+        const response = await fetch(`/games`, {
+            method: 'POST',
+            body: JSON.stringify(attributes),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if(response.status === 200){
+            alert("Successfully edited the exercise");
+        } else {
+            alert(`Failed to add exercise, status code = ${response.status}`);
+        }
+        history.push(`/games`);
+    };
     
   return (
       <>
@@ -47,7 +47,7 @@ function AddGames () {
                     <td><input type="number" value={active_game} onChange={e => setActive_game(e.target.value)}/></td>
                     </tr>
                 <tr>
-                <button>Add Game</button>
+                <button onClick={add}>Add Game</button>
                 </tr>
                 </tbody>       
             </table>

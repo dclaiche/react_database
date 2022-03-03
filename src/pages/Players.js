@@ -42,7 +42,7 @@ function Players() {
         <>
         <NavB entities={entities}></NavB>
         <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
-        <Link to="/addplayers">Add Player</Link>
+        <Link to="/createplayer">Add Player</Link>
         </>
     )
 }

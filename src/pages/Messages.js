@@ -41,7 +41,7 @@ function Messages({setEntityToAdd}) {
         <>
         <NavB entities={entities}></NavB>
         <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
-        <Link to="/addmessages">Add Messages</Link>
+        <Link to="/createmessage">Add Messages</Link>
         </>
     )
 }

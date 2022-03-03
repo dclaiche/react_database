@@ -9,6 +9,9 @@ import Games from './pages/Games';
 import Messages from './pages/Messages';
 import Membership from './pages/Membership';
 import AddGames from './pages/create/addGames';
+import AddMembership from './pages/create/addMembership';
+import AddMessages from './pages/create/addMembership';
+import AddPlayer from './pages/create/addPlayers';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
@@ -41,6 +44,15 @@ function App() {
           </Route>
           <Route path="/creategames">
             <AddGames/>
+          </Route>
+          <Route path="/createmembership">
+            <AddMembership/>
+          </Route>
+          <Route path="/createmessage">
+            <AddMessages/>
+          </Route>
+          <Route path="/createplayer">
+            <AddPlayer/>
           </Route>
           <Route path="/edit">
             <EditEntity/>
