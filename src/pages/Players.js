@@ -3,20 +3,22 @@ import { Link, useHistory} from 'react-router-dom';
 import NavB from '../components/navbar';
 import Table from '../components/table';
 import {useState, useEffect} from 'react';
-import Filter from '../components/filter';
-import PremiumSearch from '../components/premiumsearch';
-
 
 
 function Players({setToSearch}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
+    const [getplayers, setGetPlayers] = useState();
+    const [getwinners, setGetWinners] = useState([0]);
+    const [toggle, setToggle] = useState(false);
     const headers = ['player_id', 'email', 'password', 'games', 'wins', 'losses']
+    const header2 = ['player_id', 'game_id']
 
     useEffect(() => {
-        loadEntities();
-    }, [entities]);
-    
+        loadEntities()
+    }, []);
+
+
     // To be used as placeholder for user schema via mongoose on the backend
     const loadEntities = async () => {
         const response = await fetch('/players', {method: 'GET'});
@@ -29,6 +31,12 @@ function Players({setToSearch}) {
         history.push('/edit');
     }
 
+    const onGamesPlayed = async () => {
+        const response = await fetch(`players/games/${getplayers}`, {method: 'GET'});
+        const entities = await response.json();
+        setEntities(entities)
+    }
+
     const onDelete = async pk => {
         const response = await fetch(`/players`, { method: 'DELETE' });
         if (response.status === 204) {
@@ -38,12 +46,30 @@ function Players({setToSearch}) {
         }
     }
 
+    const onPremiumSearch = async () => {
+        const response = await fetch ('/players/premiumplayers', {method: 'GET'});
+        const entities = await response.json();
+        setEntities(entities);
+    }
+
+    const onShowWinners = async () => {
+        setToggle(!toggle)
+        const response = await fetch('/players/gameswon', {method: 'GET'});
+        const getwinners = await response.json();
+        setGetWinners(getwinners);
+    }
+
+
     return (
         <>
         <NavB entities={entities}></NavB>
         <Table entities={entities} onDelete={onDelete} onEdit={onEdit} headers={headers}></Table>
         <Link to="/createplayer">Add Player</Link>
-        <PremiumSearch/>
+        <button onClick={onPremiumSearch}>Search Premium Members</button>
+        <input type="number" placeholder="players who have X games" value={getplayers} onChange={(e => setGetPlayers(e.target.value))}/>
+        <button onClick={onGamesPlayed}>Submit</button>
+        <button onClick={onShowWinners}>Show Winners of Games</button>
+        {toggle ? <Table entities={getwinners} headers={header2}></Table> : <div></div>}
         </>
     )
 }
