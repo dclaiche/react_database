@@ -27,13 +27,14 @@ function Games({setEntityToEdit}) {
         history.push('/editgame');
     }
 
-    const onDelete = async pk => {
-        const response = await fetch(`/delete`, { method: 'DELETE' });
-        if (response.status === 204) {
-            setEntities(entities.filter(e => e.pk !== pk));
-        } else {
-        console.error(`Failed to delete exercise with id = ${pk}, status code = ${response.status}`)
-        }
+    const onDelete = async entities => {
+        const id = entities["game_id"] 
+        const response = await fetch(`/games/${id}`, { method: 'DELETE'})
+        if (response.status === 200) {
+            loadEntities();
+            } else {
+            console.error(`Failed to delete game with id = ${id}, status code = ${response.status}`)
+            }
     }
 
     return (

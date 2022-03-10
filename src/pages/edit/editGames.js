@@ -47,11 +47,11 @@ function EditGame({entityToEdit}) {
                     <td> {entities['game_id']}</td>
                     <td><input placeholder={time_played} type="number" value={time_played} onChange={e => setTime_played(e.target.value)} /></td>
                     <td><input placeholder={duration} type="date" value={duration} onChange={e => setDuration(e.target.value)} /></td>
-                    <td><input placeholder={player_1} type="date" value={player_1} onChange={e => setPlayer_1(e.target.value)} /></td>
-                    <td><input placeholder={player_2} type="date" value={player_2} onChange={e => setPlayer_2(e.target.value)} /></td>
-                    <td><input placeholder={winner} type="date" value={winner} onChange={e => setWinner(e.target.value)} /></td>
-                    <td><input placeholder={socket_id} type="date" value={socket_id} onChange={e => setSocket_id(e.target.value)} /></td>
-                    <td><input placeholder={active_game} type="date" value={active_game} onChange={e => setActive_game(e.target.value)} /></td>
+                    <td><input placeholder={player_1} type="number" value={player_1} onChange={e => setPlayer_1(e.target.value)} /></td>
+                    <td><input placeholder={player_2} type="number" value={player_2} onChange={e => setPlayer_2(e.target.value)} /></td>
+                    <td><input placeholder={winner} type="number" value={winner} onChange={e => setWinner(e.target.value)} /></td>
+                    <td><input placeholder={socket_id} type="number" value={socket_id} onChange={e => setSocket_id(e.target.value)} /></td>
+                    <td><input placeholder={active_game} type="number" value={active_game} onChange={e => setActive_game(e.target.value)} /></td>
                     </tr>
                     <tr>
                     <button onClick={edit}>Submit</button>
