@@ -23,7 +23,7 @@ function AddPlayer () {
         if(response.status === 200){
             alert("Successfully added the player!");
         } else {
-            alert(`Failed to add exercise, status code = ${response.status}`);
+            alert(`Failed to add player, status code = ${response.status}`);
         }
         history.push(`/players`);
     };
@@ -37,7 +37,7 @@ function AddPlayer () {
                     </tr>
                     <tr>
                     <td><input type="text" value={email} onChange={e => setEmail(e.target.value)}/></td>
-                    <td><input type="date" value={password} onChange={e => setPassword(e.target.value)}/></td>
+                    <td><input value={password} onChange={e => setPassword(e.target.value)}/></td>
                     <td><input type="number" value={games} onChange={e => setGames(e.target.value)}/></td>
                     <td><input type="number" value={wins} onChange={e => setWins(e.target.value)}/></td>
                     <td><input type="number" value={losses} onChange={e => setLosses(e.target.value)}/></td>

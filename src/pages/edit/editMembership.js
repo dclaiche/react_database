@@ -16,7 +16,7 @@ function EditMembership({entityToEdit}) {
     const edit = async () => {
         const mem_id = entities['membership_player_id']
         const attributes = {premium_status, next_payment};
-        const response = await fetch(`/messages/${mem_id}`, {
+        const response = await fetch(`/memberships/${mem_id}`, {
             method: 'PUT',
             body: JSON.stringify(attributes),
             headers: {

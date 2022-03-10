@@ -20,9 +20,9 @@ function AddMessages () {
             },
         });
         if(response.status === 200){
-            alert("Successfully edited the exercise");
+            alert("Successfully added the message");
         } else {
-            alert(`Failed to add exercise, status code = ${response.status}`);
+            alert(`Failed to add message, status code = ${response.status}`);
         }
         history.push(`/messages`);
     };

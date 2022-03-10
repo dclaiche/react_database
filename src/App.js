@@ -9,7 +9,7 @@ import Messages from './pages/Messages';
 import Membership from './pages/Membership';
 import AddGames from './pages/create/addGames';
 import AddMembership from './pages/create/addMembership';
-import AddMessages from './pages/create/addMembership';
+import AddMessages from './pages/create/addMessages';
 import AddPlayer from './pages/create/addPlayers';
 import SearchResults from './pages/SearchResults';
 import EditPlayers from './pages/edit/editPlayers';

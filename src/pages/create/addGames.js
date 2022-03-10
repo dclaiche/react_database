@@ -15,6 +15,7 @@ function AddGames () {
 
     const add = async () => {
         const attributes = {time_played, duration, player_1, player_2, winner, socket_id, active_game};
+        console.log(socket_id)
         const response = await fetch(`/games`, {
             method: 'POST',
             body: JSON.stringify(attributes),
@@ -23,9 +24,9 @@ function AddGames () {
             },
         });
         if(response.status === 200){
-            alert("Successfully edited the exercise");
+            alert("Successfully added the game");
         } else {
-            alert(`Failed to add exercise, status code = ${response.status}`);
+            alert(`Failed to add the game, status code = ${response.status}`);
         }
         history.push(`/games`);
     };

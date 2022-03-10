@@ -19,9 +19,9 @@ function AddMembership () {
             },
         });
         if(response.status === 200){
-            alert("Successfully edited the exercise");
+            alert("Successfully added the membership");
         } else {
-            alert(`Failed to add exercise, status code = ${response.status}`);
+            alert(`Failed to add membership, status code = ${response.status}`);
         }
         history.push(`/membership`);
     };

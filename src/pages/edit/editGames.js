@@ -21,7 +21,7 @@ function EditGame({entityToEdit}) {
     const edit = async () => {
         const game_id = entities['game_id']
         const attributes = {time_played, duration, player_1, player_2, winner, socket_id, active_game};
-        const response = await fetch(`/messages/${game_id}`, {
+        const response = await fetch(`/games/${game_id}`, {
             method: 'PUT',
             body: JSON.stringify(attributes),
             headers: {
@@ -45,7 +45,7 @@ function EditGame({entityToEdit}) {
                     </tr>
                     <tr>
                     <td> {entities['game_id']}</td>
-                    <td><input placeholder={time_played} type="number" value={time_played} onChange={e => setTime_played(e.target.value)} /></td>
+                    <td><input placeholder={time_played} type="date" value={time_played} onChange={e => setTime_played(e.target.value)} /></td>
                     <td><input placeholder={duration} type="date" value={duration} onChange={e => setDuration(e.target.value)} /></td>
                     <td><input placeholder={player_1} type="number" value={player_1} onChange={e => setPlayer_1(e.target.value)} /></td>
                     <td><input placeholder={player_2} type="number" value={player_2} onChange={e => setPlayer_2(e.target.value)} /></td>

@@ -44,7 +44,7 @@ function EditPlayers({entityToEdit}) {
                     <tr>
                     <td> {entities['player_id']}</td>
                     <td><input placeholder={entities['email']} type="text" value={email} onChange={e => setEmail(e.target.value)} /></td>
-                    <td><input placeholder={entities['password']} type="date" value={password} onChange={e => setPassword(e.target.value)} /></td>
+                    <td><input placeholder={entities['password']} type="text" value={password} onChange={e => setPassword(e.target.value)} /></td>
                     <td><input placeholder={entities['games']} type="number" value={games} onChange={e => setGames(e.target.value)} /></td>
                     <td><input placeholder={entities['wins']} type="number" value={wins} onChange={e => setWins(e.target.value)}/></td>
                     <td><input placeholder={entities['losses']} type="number" value={losses} onChange={e => setLosses(e.target.value)} /></td>
