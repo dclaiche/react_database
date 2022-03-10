@@ -5,8 +5,7 @@ import Container from 'react-bootstrap/Container'
 
 function NavB () {
   return (
-
-     <Navbar bg="dark" variant="dark">
+     <Navbar fixed="top" bg="dark" variant="dark">
        <Container>
      <Nav className="me-auto">
      <Nav.Link href='/'>Homepage</Nav.Link>
@@ -17,7 +16,6 @@ function NavB () {
      </Nav>
      </Container>
    </Navbar>
-
   )
 }
 

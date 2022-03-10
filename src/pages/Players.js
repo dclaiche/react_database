@@ -39,7 +39,7 @@ function Players({setToSearch, setEntityToEdit}) {
 
     const onEdit = entities => {
         setEntityToEdit(entities)
-        history.push('/edit');
+        history.push('/editplayer');
     }
 
     const onGamesPlayed = async () => {

@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 
 
 
-function Messages({setEntityToAdd}) {
+function Messages({setEntityToEdit}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
     const headers = ['chat_message_id', 'chat_message', 'timestamp', 'players_player_id', 'games_game_id']
@@ -24,17 +24,18 @@ function Messages({setEntityToAdd}) {
     }
 
     const onEdit = entities => {
-        // setEntityToEdit(entities)
-        history.push('/edit');
+        setEntityToEdit(entities)
+        history.push('/editmessage');
     }
 
-    const onDelete = async pk => {
-        const response = await fetch(`/delete`, { method: 'DELETE' });
-        if (response.status === 204) {
-            setEntities(entities.filter(e => e.pk !== pk));
-        } else {
-        console.error(`Failed to delete exercise with id = ${pk}, status code = ${response.status}`)
-        }
+    const onDelete = async entities => {
+        const id = entities["chat_message_id"] 
+        const response = await fetch(`/messages/${id}`, { method: 'DELETE'})
+        if (response.status === 200) {
+            loadEntities();
+            } else {
+            console.error(`Failed to delete message with id = ${id}, status code = ${response.status}`)
+            }
     }
 
     return (

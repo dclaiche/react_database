@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 
 
 
-function Membership({setEntityToAdd}) {
+function Membership({setEntityToEdit}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
     const headers = ['membership_player_id', 'premium_status', 'next_payment']
@@ -24,17 +24,18 @@ function Membership({setEntityToAdd}) {
     }
 
     const onEdit = entities => {
-        // setEntityToEdit(entities)
-        history.push('/edit');
+        setEntityToEdit(entities)
+        history.push('/editmembership');
     }
 
-    const onDelete = async pk => {
-        const response = await fetch(`/delete`, { method: 'DELETE' });
-        if (response.status === 204) {
-            setEntities(entities.filter(e => e.pk !== pk));
-        } else {
-        console.error(`Failed to delete exercise with id = ${pk}, status code = ${response.status}`)
-        }
+    const onDelete = async entities => {
+        const id = entities["membership_player_id"] 
+        const response = await fetch(`/memberships/${id}`, { method: 'DELETE'})
+        if (response.status === 200) {
+            loadEntities();
+            } else {
+            console.error(`Failed to delete membership with id = ${id}, status code = ${response.status}`)
+            }
     }
 
     return (

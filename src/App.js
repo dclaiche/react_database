@@ -13,6 +13,9 @@ import AddMessages from './pages/create/addMembership';
 import AddPlayer from './pages/create/addPlayers';
 import SearchResults from './pages/SearchResults';
 import EditPlayers from './pages/edit/editPlayers';
+import EditMessages from './pages/edit/editMessages';
+import EditMembership from './pages/edit/editMembership';
+import EditGame from './pages/edit/editGames';
 
 function App() {
   const [entityToEdit, setEntityToEdit] = useState([]);
@@ -59,8 +62,17 @@ function App() {
           <Route path="/search">
             <SearchResults tosearch={tosearch}/>
           </Route>
-          <Route path="/edit">
+          <Route path="/editplayer">
             <EditPlayers entityToEdit={entityToEdit}/>
+          </Route>
+          <Route path="/editmessage">
+            <EditMessages entityToEdit={entityToEdit}/>
+          </Route>
+          <Route path="/editmembership">
+            <EditMembership entityToEdit={entityToEdit}/>
+          </Route>
+          <Route path="/editgame">
+            <EditGame entityToEdit={entityToEdit}/>
           </Route>
           </div> 
         </Router>

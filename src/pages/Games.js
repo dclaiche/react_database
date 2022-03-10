@@ -5,7 +5,7 @@ import Table from '../components/table';
 import {useState, useEffect} from 'react';
 
 
-function Games() {
+function Games({setEntityToEdit}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
     const headers = ['game_id', 'time_played', 'duration', 'player_1', 'player_2', 'winner', 'socket_id', 'active_game']
@@ -23,8 +23,8 @@ function Games() {
     }
 
     const onEdit = entities => {
-        // setEntityToEdit(entities)
-        history.push('/edit');
+        setEntityToEdit(entities)
+        history.push('/editgame');
     }
 
     const onDelete = async pk => {
