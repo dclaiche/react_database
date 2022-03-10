@@ -9,11 +9,11 @@ import TH from '../../components/TH';
 function EditPlayers({entityToEdit}) {
     const headers = ['player_id', 'email', 'password', 'games', 'wins', 'losses']
     const entities = entityToEdit
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [games, setGames] = useState('');
-    const [wins, setWins] = useState('');
-    const [losses, setLosses] = useState('');
+    const [email, setEmail] = useState(entityToEdit['email']);
+    const [password, setPassword] = useState(entityToEdit['password']);
+    const [games, setGames] = useState(entityToEdit['games']);
+    const [wins, setWins] = useState(entityToEdit['wins']);
+    const [losses, setLosses] = useState(entityToEdit['losses']);
     const history = useHistory();
 
     const edit = async () => {
@@ -27,9 +27,9 @@ function EditPlayers({entityToEdit}) {
             },
         });
         if(response.status === 200){
-            alert("Successfully edited the exercise");
+            alert("Successfully edited the player");
         } else {
-            alert(`Failed to add exercise, status code = ${response.status}`);
+            alert(`Failed to edit player, status code = ${response.status}`);
         }
         history.push(`/players`);
     };

@@ -30,10 +30,11 @@ function Players({setToSearch, setEntityToEdit}) {
         console.log(entities["player_id"])
         const id = entities["player_id"] 
         const response = await fetch(`/players/${id}`, { method: 'DELETE'})
-        .then (history.push('/players'))
-        .catch (error => {
-        console.error(`Failed to delete player with id = ${id}, status code = ${error}`)
-        })
+        if (response.status === 200) {
+            loadEntities();
+            } else {
+            console.error(`Failed to delete player with id = ${id}, status code = ${response.status}`)
+            }
     }
 
     const onEdit = entities => {
