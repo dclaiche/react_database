@@ -5,7 +5,6 @@ import Table from '../components/table';
 import {useState, useEffect} from 'react';
 
 
-
 function Games() {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
@@ -27,7 +26,6 @@ function Games() {
         // setEntityToEdit(entities)
         history.push('/edit');
     }
-
 
     const onDelete = async pk => {
         const response = await fetch(`/delete`, { method: 'DELETE' });

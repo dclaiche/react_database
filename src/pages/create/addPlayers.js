@@ -21,7 +21,7 @@ function AddPlayer () {
             },
         });
         if(response.status === 200){
-            alert("Successfully edited the exercise");
+            alert("Successfully added the player!");
         } else {
             alert(`Failed to add exercise, status code = ${response.status}`);
         }

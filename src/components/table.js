@@ -5,8 +5,6 @@ import TH from './TH';
 function Table({entities, onDelete, onEdit, headers}) {
     return (
         <>
-         <div>
-        </div>
             <table>
               <tbody>
                     <tr>

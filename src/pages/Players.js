@@ -5,7 +5,7 @@ import Table from '../components/table';
 import {useState, useEffect} from 'react';
 
 
-function Players({setToSearch}) {
+function Players({setToSearch, setEntityToEdit}) {
     const history = useHistory();
     const [entities, setEntities] = useState([0]);
     const [getplayers, setGetPlayers] = useState();
@@ -26,8 +26,18 @@ function Players({setToSearch}) {
         setEntities(entities);
     }
 
+    const onDelete = async entities => {
+        console.log(entities["player_id"])
+        const id = entities["player_id"] 
+        const response = await fetch(`/players/${id}`, { method: 'DELETE'})
+        .then (history.push('/players'))
+        .catch (error => {
+        console.error(`Failed to delete player with id = ${id}, status code = ${error}`)
+        })
+    }
+
     const onEdit = entities => {
-        // setEntityToEdit(entities)
+        setEntityToEdit(entities)
         history.push('/edit');
     }
 
@@ -35,15 +45,6 @@ function Players({setToSearch}) {
         const response = await fetch(`players/games/${getplayers}`, {method: 'GET'});
         const entities = await response.json();
         setEntities(entities)
-    }
-
-    const onDelete = async pk => {
-        const response = await fetch(`/players`, { method: 'DELETE' });
-        if (response.status === 204) {
-            setEntities(entities.filter(e => e.pk !== pk));
-        } else {
-        console.error(`Failed to delete exercise with id = ${pk}, status code = ${response.status}`)
-        }
     }
 
     const onPremiumSearch = async () => {

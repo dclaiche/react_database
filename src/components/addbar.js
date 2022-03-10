@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import InputBox from './inputbox';
 import TH from './TH'
 
 function AddBar ({entities, headers, page}) {
